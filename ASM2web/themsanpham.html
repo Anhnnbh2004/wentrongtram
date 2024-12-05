@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sản Phẩm</title>
+    <link rel="stylesheet" href="style.css"> <!-- Thêm CSS nếu cần -->
+</head>
+<body>
+    <header>
+        <h1>Thêm Sản Phẩm Mới</h1>
+        <nav>
+            <ul>
+                <li><a href="trangchu.html">Trang chủ</a></li>
+                <li><a href="themsanpham.html">Thêm sản phẩm</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="themsanpham.php" method="POST" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td><label for="product_id">Mã sản phẩm:</label></td>
+                    <td><input type="text" id="product_id" name="product_id" required></td>
+                </tr>
+                <tr>
+                    <td><label for="product_name">Tên sản phẩm:</label></td>
+                    <td><input type="text" id="product_name" name="product_name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="product_price">Giá sản phẩm:</label></td>
+                    <td><input type="number" id="product_price" name="product_price" required></td>
+                </tr>
+                <tr>
+                    <td><label for="quantity">Số lượng sản phẩm:</label></td>
+                    <td><input type="number" id="quantity" name="quantity" required></td>
+                </tr>
+                <tr>
+                    <td><label for="product_img">Ảnh sản phẩm:</label></td>
+                    <td><input type="file" id="product_img" name="product_img" required></td>
+                </tr>
+                <tr>
+                    <td><label for="product_description">Mô tả sản phẩm:</label></td>
+                    <td>
+                        <textarea id="product_description" name="product_description" rows="4" cols="50" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="add_product" value="Thêm mới">
+                        <input type="reset" value="Xóa thông tin">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Website Quản Lý Sản Phẩm. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="trangchu.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Trang Chủ</h1>
+        <nav>
+            <ul>
+                <li><a href="trangdangnhap.html">Đăng nhập</a></li>
+                <li><a href="trangdangki.html">Đăng ký</a></li>
+                <li><a href="themsanpham.html">thêm sản phẩm</a></li>
+                <li><a href="cart.html">giỏ hàng </a></li>
+
+
+
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <form action="/tim-kiem" method="GET">
+              <input 
+                type="text" 
+                name="query" 
+                placeholder="Nhập tên sản phẩm, thương hiệu..." 
+                required 
+              />
+              <button type="submit">Tìm kiếm</button>
+            </form>
+          </div>
+    </header>
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators/dots -->
+   <div class="carousel-indicators">
+       <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+       <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+       <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+   </div>
+
+   <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="slide show.jpg" alt="" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="ferari show.jpeg" alt="" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+      <img src="showoto.jpg" alt="" class="d-block w-100">
+    </div>
+  </div>
+  
+
+ <!-- Left and right controls/icons -->
+ <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+   <span class="carousel-control-prev-icon"></span>
+ </button>
+ <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+   <span class="carousel-control-next-icon"></span>
+ </button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <main>
+        <h2>Chào mừng đến với website auto88 Thái Hoàng Luxury!</h2>
+        <p>Đây là trang chủ của website, nơi bạn có thể khám phá các sản phẩm mới nhất.</p>
+       
+    
+    </main>
+    <section class="products">
+        <h2>Sản phẩm nổi bật</h2>
+        <div class="product-gallery">
+            <div class="product-item">
+                <img src="lamborgini.jpg" alt="Sản phẩm 1">
+                <p>Lamborghini</p>
+                <span class="price" data-price="20999999999">20,999,999,999 VND</span>
+                <div class="product-buttons">
+                    <button class="buy-button" data-name="Lamborghini" data-price="20999999999">Mua</button>
+                    <button class="cart-button" data-name="Lamborghini" data-price="20999999999">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="g63.jpg" alt="Sản phẩm 2">
+                <p>G63</p>
+                <span class="price" data-price="15999999999">15,999,999,999 VND</span>
+                <div class="product-buttons">
+                    <button class="buy-button" data-name="G63" data-price="15999999999">Mua</button>
+                    <button class="cart-button" data-name="G63" data-price="15999999999">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="porcher.webp" alt="Sản phẩm 3">
+                <p>Porcher</p>
+                <span class="price" data-price="9999999999">9,999,999,999 VND</span>
+                <div class="product-buttons">
+                    <button class="buy-button" data-name="Porcher" data-price="9999999999">Mua</button>
+                    <button class="cart-button" data-name="Porcher" data-price="9999999999">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="Mercedes-Maybach-S-680-4MATIC-P02.jpg" alt="Sản phẩm 4">
+                <p>Maybach</p>
+                <span class="price" data-price="16999999999">16,999,999,999 VND</span>
+                <div class="product-buttons">
+                    <button class="buy-button" data-name="Maybach" data-price="16999999999">Mua</button>
+                    <button class="cart-button" data-name="Maybach" data-price="16999999999">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </section>
+<script>
+                // Giỏ hàng
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Thêm sản phẩm vào giỏ hàng
+function addToCart(name, price) {
+    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+    const existingProduct = cart.find(item => item.name === name);
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({ name, price: parseFloat(price), quantity: 1 });
+    }
+
+    // Lưu giỏ hàng vào Local Storage
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Sản phẩm đã được thêm vào giỏ hàng!");
+}
+
+// Tính tổng tiền
+function calculateTotal() {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
+document.querySelectorAll(".buy-button, .cart-button").forEach(button => {
+    button.addEventListener("click", (e) => {
+        const name = e.target.getAttribute("data-name");
+        const price = e.target.getAttribute("data-price");
+
+        addToCart(name, price);
+
+        // Nếu là nút "Mua", chuyển hướng sang trang giỏ hàng
+        if (e.target.classList.contains("buy-button")) {
+            window.location.href = "cart.html";
+        }
+    });
+});
+
+
+            </script>
+            
+        </div>
+    </section>
+    
+    
+    <br>
+    <footer>
+        <p>&copy; 2024 Website Auto88. All Rights Reserved.</p>
+    </footer>
+    
+</body>
+</html>
